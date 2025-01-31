@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}External Links{% endblock %}
+
+{% block body %}
+
+    <p>
+        Useful external links to development resources.
+    </p>
+
+    {% for header, items in links %}
+        <div class="display-6 mb-2">{{ header }}</div>
+        {% for link in items %}<p class="mb-1"><a class="font-weight-bold" href="{{ link.getLink() }}" target="{{ link.getTarget() }}"><i class="bi bi-link-45deg"></i></a> {{ link.getDescription() }}</p>{% endfor %}
+    {% endfor %}
+{% endblock %}

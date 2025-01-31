@@ -1,0 +1,37 @@
+#
+# The links.yaml contain the links that will be rendered from the DefaultController::links() action.
+#
+# Group Name:
+#       - { link: "https:\\link.html", description: "This is what we describe the destination site as" }
+#       - {link: '', description: ''}
+
+'PHP Sites':
+    - { link: 'https://3v4l.org/', description: 'Evaluate code in different versions of PHP' }
+    - { link: 'https://www.script-tutorials.com/design-patterns-in-php/', description: 'PHP Design Patterns' }
+    - { link: 'http://www.phpsadness.com/', description: 'PHP Sadness, cause sometimes you love to hate your favorite programming language' }
+
+'javascript Sites':
+    - { link: 'https://jquery.com/', description: 'jQuery and jQueryUI' }
+    - { link: 'https://jsonplaceholder.typicode.com/', description: 'JSONPlaceholder, a great site for generating fake JSON data, for developing frontends without a backend' }
+    - { link: 'https://jsfiddle.net/', description: 'jsFiddle, a great site for testing, collaborating, proofing frontend components' }
+
+'CSS Sites':
+    - { link: 'http://paletton.com/', description: 'Colors and information about colors is best left to designers, for the rest of us we need tools like Paletton' }
+    - { link: 'http://davidbau.com/colors/', description: 'Simple Page put together with css color names, organized by lightness and hue' }
+    - { link: 'http://nealchester.com/special-characters/', description: 'HTML Codes for Special characters' }
+    - { link: 'https://html.spec.whatwg.org/multipage/named-characters.html', description: 'HTML Codes for Special characters' }
+
+'Bootstrap Sites':
+    - { link: 'https://getbootstrap.com/docs/5.0/getting-started/introduction/', description: 'Bootstrap 5.0' }
+    - { link: 'https://getbootstrap.com/docs/5.1/getting-started/introduction/', description: 'Bootstrap 5.1' }
+    - { link: 'https://getbootstrap.com/docs/5.2/getting-started/introduction/', description: 'Bootstrap 5.2' }
+    - { link: 'https://getbootstrap.com/docs/5.3/getting-started/introduction/', description: 'Bootstrap 5.3' }
+    - { link: 'https://getbootstrap.com/docs/4.6/getting-started/introduction/', description: 'Bootstrap 4.6' }
+    - { link: 'https://getbootstrap.com/docs/3.4/getting-started/', description: 'Bootstrap 3.4' }
+    - { link: 'https://bootstrap.build/app', description: 'Bootstrap Theme Builder' }
+
+'Tools':
+    - { link: 'https://caniuse.com/', description: 'CanIUse is a staple for front end development, this site will show what front end features are supported by which browsers & mobile browsers.' }
+    - { link: 'https://regex101.com/', description: 'Regex101 is a great regex testing tool along with good documentation on the various flags and options available to different version of regex.' }
+    - { link: 'https://httpbin.org/', description: 'httpbin is a great site for testing or simulating functionality of http & https requests with simulated responses.' }
+    - { link: 'https://picsum.photos/', description: 'Lorem Picsum is an image resource to add in placeholder images when you do not have real images yet. The images size and type can be added to the URL and the corresponding image will be generated and served back.' }

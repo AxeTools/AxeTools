@@ -1,0 +1,30 @@
+{% set current_route = app.request.get('_route') %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+        {# <img src="{{ asset('images/axe_tools_light.png') }}" alt="" width="40" height="25"> #}
+        <a class="navbar-brand" href="{{ gravatarProfile() }}" target="_blank"><img src="{{ gravatarAvatar() }}" class="rounded-circle" alt="avatar"></a>
+        <a class="navbar-brand" href="{{ path('app_index') }}">Axe Tools</a>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle{% if current_route starts with 'app_convert_' %} active{% endif %}" href="#" id="navbarConverterMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Converters
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item{% if current_route == 'app_convert_fromJson' %} active{% endif %}" href="{{ path('app_convert_fromJson') }}">UnSerialize from JSON</a></li>
+                        <li><a class="dropdown-item{% if current_route == 'app_convert_fromSerialize' %} active{% endif %}" href="{{ path('app_convert_fromSerialize') }}">UnSerialize from PHP</a></li>
+                        <li><a class="dropdown-item{% if current_route == 'app_convert_fromYaml' %} active{% endif %}" href="{{ path('app_convert_fromYaml') }}">UnSerialize from YAML</a></li>
+                        <li><a class="dropdown-item{% if current_route == 'app_convert_fromUrl' %} active{% endif %}" href="{{ path('app_convert_fromUrl') }}">UnSerialize from URL</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item{% if current_route == 'app_convert_toString' %} active{% endif %}" href="{{ path('app_convert_toString') }}">Serialize To String</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item{% if current_route == 'app_convert_fromUuid' %} active{% endif %}" href="{{ path('app_convert_fromUuid') }}">Decode Uuid</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if current_route == 'app_links' %} active{% endif %}" aria-current="page" href="{{ path('app_links') }}">Links</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

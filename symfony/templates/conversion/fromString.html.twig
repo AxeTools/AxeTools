@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">{{ form_label(form.data) }}</span>
+        {{ form_widget(form.data) }}
+    </div>
+    <div class="input-group mb-3">
+        <label for="{{ field_label(form.dump_type) }}" class="input-group-text">Convert Type</label>
+        {{ form_widget(form.dump_type) }}
+    </div>
+
+    <input type="submit" value="Convert" class="btn btn-primary">
+    {{ form_end(form) }}
+
+    {% if result is not null %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="card-title">Results</div>
+                <div class="card-subtitle mb-2 text-muted">{{ field_value(form.dump_type) }}</div>
+                {% if field_value(form.dump_type) == 'var_dumper' %}
+                    {{ convert_var_dumper(result) }}
+                {% elseif field_value(form.dump_type) == 'var_dump' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result" class="language-php">{{ result|convert_var_dump }}</code></pre>
+                        </div>
+                    </div>
+                {% elseif field_value(form.dump_type) == 'var_export' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result" class="language-php">{{ result|convert_var_export }}</code></pre>
+                        </div>
+                    </div>
+                {% elseif field_value(form.dump_type) == 'print_r' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result" class="language-php">{{ result|convert_print_r }}</code></pre>
+                        </div>
+                    </div>
+                {% elseif field_value(form.dump_type) == 'yaml' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result" class="language-php">{{ result|convert_yaml_dump }}</code></pre>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

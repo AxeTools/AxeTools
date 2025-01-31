@@ -1,0 +1,15 @@
+
+services:
+  php:
+    image: axetools:latest
+    restart: always
+    environment:
+      APP_ENV: prod
+
+  nginx:
+    image: axetools_nginx:latest
+    restart: always
+    depends_on:
+      - php
+    ports:
+      - "8675:80"

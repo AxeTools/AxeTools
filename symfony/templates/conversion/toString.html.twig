@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">{{ form_label(form.data) }}</span>
+        {{ form_widget(form.data) }}
+    </div>
+    <div class="input-group mb-3">
+        <label for="{{ form.dump_type.vars.id }}" class="input-group-text">Dump Type</label>
+        {{ form_widget(form.dump_type) }}
+    </div>
+
+    <input type="submit" value="Convert" class="btn btn-primary">
+    {{ form_end(form) }}
+
+    {% if result is not null %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="card-title">Results</div>
+                <div class="card-subtitle mb-2 text-muted">{{ field_value(form.dump_type) }}</div>
+                {% if field_value(form.dump_type) == 'json_encode' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result">{{ result|convert_json_encode }}</code></pre>
+                        </div>
+                    </div>
+                {% elseif field_value(form.dump_type) == 'serialize' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result">{{ result|convert_serialize }}</code></pre>
+                        </div>
+                    </div>
+                {% elseif field_value(form.dump_type) == 'yaml' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result">{{ result|convert_yaml_dump }}</code></pre>
+                        </div>
+                    </div>
+                {% elseif field_value(form.dump_type) == 'url' %}
+                    <div class="row">
+                        <div class="col">
+                            <pre class="p-3 fs-7 copy-enabled"><code id="convert-result">{{ result|convert_url }}</code></pre>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+
+services:
+  php:
+    build:
+      context: ../images
+      dockerfile: axetools_php_dev.Dockerfile
+    environment:
+      APP_ENV: dev
+
+  nginx:
+    build:
+      context: ../images
+      dockerfile: ../images/nginx_dev.Dockerfile
+    depends_on:
+      - php
+    ports:
+      - "8675:80"

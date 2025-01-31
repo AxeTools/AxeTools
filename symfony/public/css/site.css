@@ -1,0 +1,10 @@
+pre.copy-enabled button.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: .65rem !important;
+}
+
+.fs-7 {
+    font-size: 0.8rem !important;
+}

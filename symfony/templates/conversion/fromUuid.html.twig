@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="col">
+        <div class="input-group has-validation">
+            <span id="uuidInputGroup" class="input-group-text">{{ form_label(form.uuid) }}</span>
+            {% if form_errors(form.uuid) %}
+                {{ form_widget(form.uuid, {'attr' : {'class': 'form-control font-monospace fs-7 is-invalid', 'aria-describedby': 'uuidInputGroup validationUuidFeedback'}}) }}
+            {% else %}
+                {{ form_widget(form.uuid) }}
+            {% endif %}
+            <div id="validationUuidFeedback" class="invalid-feedback">{{ form_errors(form.uuid) }}</div>
+        </div>
+    </div>
+    <div class="col pt-3">
+        <input type="submit" value="Decode" class="btn btn-primary">
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    {% if result is not null %}
+        <div class="container">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="card-title">Decode Results</div>
+                    <div class="card-subtitle mb-2 text-muted">UUID v.{{ result.version }}</div>
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr><th>Standard String</th><td>{{ result.decoded.encode.STR }}</td></tr>
+                            <tr><th>Single Integer</th><td>{{ result.decoded.encode.SIV }}</td></tr>
+                            <tr><th>UUID Version</th><td>{{ result.decoded.decode.version|wrap_paren('<span class="fst-italic text-muted">', '</span>') }}</td></tr>
+                            <tr><th>UUID Variant</th><td>{{ result.decoded.decode.variant }}</td></tr>
+                        {% if result.hasTime %}
+                            <tr><th>Contents - Time</th><td>{{ result.decoded.decode.contents.time.format("Y-m-d H:i:s.u.0 e") }}</td></tr>
+                            <tr><th>Contents - Clock</th><td>{{ result.decoded.decode.contents.clock|wrap_paren('<span class="fst-italic text-muted">', '</span>') }}</td></tr>
+                            <tr><th>Contents - Node</th><td>{{ result.decoded.decode.contents.node|wrap_paren('<span class="fst-italic text-muted">', '</span>') }}</td></tr>
+                        {% else %}
+                            <tr><th>UUID Variant</th><td>{{ result.decoded.decode.contents|wrap_paren('<span class="fst-italic text-muted">', '</span>') }}</td></tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
