@@ -1,0 +1,16 @@
+
+services:
+  php:
+    volumes:
+      - /Users/rhowe/Projects/AxeTools/AxeTools/symfony:/var/www/symfony/
+    environment:
+      APP_ENV: dev
+      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9003 remote_connect_back=0
+
+  nginx:
+    volumes:
+      - /Users/rhowe/Projects/AxeTools/AxeTools/symfony:/var/www/symfony
+      - /Users/rhowe/Projects/AxeTools/AxeTools/devops/images/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /Users/rhowe/Projects/AxeTools/AxeTools/devops/images/nginx/sites/:/etc/nginx/sites-available
+      - /Users/rhowe/Projects/AxeTools/AxeTools/devops/images/nginx/conf.d/:/etc/nginx/conf.d
+      - /Users/rhowe/Projects/AxeTools/AxeTools/logs:/var/log

@@ -10,9 +10,9 @@ that are used by the axetools along with any configuration files needed by the i
 
 ### `axetools-dev/`
 
-The `axetools-dev/` directory contains the `docker-compose` files that are needed to run the development containers 
+The `axetools-dev/` directory contains the `compose` files that are needed to run the development containers 
 to develop the axetools project and add new features, correct bugs, run tests and modify existing behavior.
 
 ### `axetools-prod/`
 
-The `axetools-prod/` directory contains the `docker-compose` files that are needed to run the production containers.
+The `axetools-prod/` directory contains the `compose` files that are needed to run the production containers.
