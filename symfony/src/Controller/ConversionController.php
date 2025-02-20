@@ -9,7 +9,6 @@ use App\Form\SerializeEntryType;
 use App\Form\UuidEntryType;
 use App\Utils\Flash;
 use App\Utils\Type\SerializeType;
-use Ryanwhowe\Dot\Dot;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -278,7 +277,7 @@ final class ConversionController extends AbstractController {
      * @return array<mixed>
      */
     protected function formatUuidResult(array $result): array {
-        $hasTime = Dot::has($result, 'decode.contents.time');
+        $hasTime = dotHas($result, 'decode.contents.time');
 
         return [
             'version' => (int) $result['decode']['version'],

@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a5e4d8c8fb79d6ef98e8da48ba33c68",
+    "content-hash": "60e151843d2317e12f4035537576c028",
     "packages": [
+        {
+            "name": "axetools/dot",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AxeTools/Dot.git",
+                "reference": "40b4e28343b6002f2161487dd3e13be1cd588256"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AxeTools/Dot/zipball/40b4e28343b6002f2161487dd3e13be1cd588256",
+                "reference": "40b4e28343b6002f2161487dd3e13be1cd588256",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "*",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/DotFunctions.php"
+                ],
+                "psr-4": {
+                    "AxeTools\\Utilities\\Dot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan W Howe",
+                    "email": "axetoolsphp@gmail.com"
+                }
+            ],
+            "description": "A PHP Library to access ans set values in an array using dot notation on any other separator",
+            "keywords": [
+                "access",
+                "array",
+                "data",
+                "dot",
+                "notation"
+            ],
+            "support": {
+                "issues": "https://github.com/AxeTools/Dot/issues",
+                "source": "https://github.com/AxeTools/Dot/tree/v1.0.0"
+            },
+            "time": "2024-10-07T16:19:23+00:00"
+        },
         {
             "name": "doctrine/cache",
             "version": "2.2.0",
@@ -2082,62 +2136,6 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
             "time": "2024-09-11T13:17:53+00:00"
-        },
-        {
-            "name": "ryanwhowe/dot",
-            "version": "v3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ryanwhowe/Dot.git",
-                "reference": "272cde3e447a21f5fa9d5d86ec15ca7d7682f050"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ryanwhowe/Dot/zipball/272cde3e447a21f5fa9d5d86ec15ca7d7682f050",
-                "reference": "272cde3e447a21f5fa9d5d86ec15ca7d7682f050",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "*",
-                "phpunit/phpunit": "*",
-                "vimeo/psalm": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/functions.php"
-                ],
-                "psr-4": {
-                    "Ryanwhowe\\Dot\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ryan W Howe",
-                    "email": "ryanwhowe@gmail.com"
-                }
-            ],
-            "description": "A PHP library to access and Set values in an array using dot notation or any other separator",
-            "keywords": [
-                "access",
-                "array",
-                "data",
-                "dot",
-                "notation"
-            ],
-            "support": {
-                "issues": "https://github.com/ryanwhowe/Dot/issues",
-                "source": "https://github.com/ryanwhowe/Dot/tree/v3.1.0"
-            },
-            "abandoned": "axetools/dot",
-            "time": "2023-06-17T14:24:57+00:00"
         },
         {
             "name": "symfony/asset",
