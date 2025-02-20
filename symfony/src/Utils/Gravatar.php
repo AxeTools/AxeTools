@@ -50,7 +50,7 @@ class Gravatar {
      */
     protected bool $use_secure_url = true;
 
-    public static function create(int $size = 80, bool $secure = true, string $max_rating = self::MAX_RATING_G, string $default = null): Gravatar {
+    public static function create(int $size = 80, bool $secure = true, string $max_rating = self::MAX_RATING_G, ?string $default = null): Gravatar {
         $self = new self();
         $self->use_secure_url = $secure;
         $self->setAvatarSize($size)
@@ -95,8 +95,9 @@ class Gravatar {
      * @throws \InvalidArgumentException
      */
     public function setDefaultImage(mixed $image): static {
-
-        if (null === $image) return $this;
+        if (null === $image) {
+            return $this;
+        }
 
         // Check $image against recognized gravatar "defaults", and if it doesn't match any of those we need to see if it is a valid URL.
         $gravatar_default_name_check = strtolower(trim($image));

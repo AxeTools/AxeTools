@@ -78,7 +78,7 @@ class ConvertExtensionRuntime implements RuntimeExtensionInterface {
         }
 
         $dump = fopen('php://memory', 'r+');
-        if(is_resource($dump)) {
+        if (is_resource($dump)) {
             $dumper = new HtmlDumper();
             $dumper->setCharset($env->getCharset());
             $cloner = new VarCloner();

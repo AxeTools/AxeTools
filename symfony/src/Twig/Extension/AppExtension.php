@@ -14,16 +14,16 @@ class AppExtension extends AbstractExtension {
             // parameter: ['is_safe' => ['html']]
             // Reference: https://twig.symfony.com/doc/3.x/advanced.html#automatic-escaping
             // new TwigFilter('filter_name', [AppExtensionRuntime::class, 'doSomething']),
-            /** @psalm-suppress InvalidArgument Incorrect reflection in Twig */
+            /* @psalm-suppress InvalidArgument Incorrect reflection in Twig */
             new TwigFilter('wrap_paren', [AppExtensionRuntime::class, 'wrapParen'], ['is_safe' => ['html']]),
         ];
     }
 
     public function getFunctions(): array {
         return [
-            /** @psalm-suppress InvalidArgument Incorrect reflection in Twig */
+            /* @psalm-suppress InvalidArgument Incorrect reflection in Twig */
             new TwigFunction('gravatarAvatar', [AppExtensionRuntime::class, 'getGravatarAvatar']),
-            /** @psalm-suppress InvalidArgument Incorrect reflection in Twig */
+            /* @psalm-suppress InvalidArgument Incorrect reflection in Twig */
             new TwigFunction('gravatarProfile', [AppExtensionRuntime::class, 'getGravatarProfile']),
         ];
     }
