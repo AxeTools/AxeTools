@@ -223,7 +223,7 @@ final class ConversionController extends AbstractController {
             $uuid = $uuidEntry->getUuid();
             passthru('uuid -d '.escapeshellarg($uuid));
             $results = ob_get_clean();
-            if(is_string($results)) {
+            if (is_string($results)) {
                 $results = trim($results);
             } else {
                 $results = '';

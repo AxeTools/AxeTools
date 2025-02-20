@@ -109,8 +109,8 @@
             "@phpstan",
             "@psalm"
         ],
-        "codefix": "php-cs-fixer fix",
-        "codefix-ci": "php-cs-fixer fix --diff --dry-run --verbose"
+        "codefix": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix",
+        "codefix-ci": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix --diff --dry-run --verbose"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -134,7 +134,8 @@
         "symfony/maker-bundle": "^1.49",
         "symfony/phpunit-bridge": "^6.3",
         "symfony/stopwatch": "6.4.*",
-        "symfony/web-profiler-bundle": "6.4.*",        "vimeo/psalm": "^6"
+        "symfony/web-profiler-bundle": "6.4.*",
+        "vimeo/psalm": "^6"
     },
     "scripts-descriptions": {
         "analyze": "Run All project static analysis scripts",

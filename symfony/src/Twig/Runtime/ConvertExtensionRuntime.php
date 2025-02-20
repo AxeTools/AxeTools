@@ -26,7 +26,10 @@ final class ConvertExtensionRuntime implements RuntimeExtensionInterface {
      */
     public static function jsonEncode(mixed $data): string {
         $result = json_encode($data);
-        if(!is_string($result)) return '';
+        if (!is_string($result)) {
+            return '';
+        }
+
         return $result;
     }
 
@@ -53,7 +56,9 @@ final class ConvertExtensionRuntime implements RuntimeExtensionInterface {
         ob_start();
         var_dump($data);
         $results = ob_get_contents();
-        if(false === $results) $results = '';
+        if (false === $results) {
+            $results = '';
+        }
         ob_end_clean();
 
         return $results;
@@ -89,7 +94,10 @@ final class ConvertExtensionRuntime implements RuntimeExtensionInterface {
                 $dumper->dump($cloner->cloneVar($value), $dump);
             }
             $results = stream_get_contents($dump, -1, 0);
-            if(false === $results) $results = null;
+            if (false === $results) {
+                $results = null;
+            }
+
             return $results;
         } else {
             return '';
