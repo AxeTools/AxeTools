@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Yaml\Yaml;
 
-class DefaultController extends AbstractController {
+final class DefaultController extends AbstractController {
     #[Route('/', name: 'app_index')]
     #[Template('default/index.html.twig')]
     public function index(): void {

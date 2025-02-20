@@ -8,7 +8,7 @@
         findUnusedBaselineEntry="true"
         findUnusedCode="false"
         reportMixedIssues="false"
-        phpVersion="8.2"
+        phpVersion="8.4"
         findUnusedPsalmSuppress="true"
 >
     <projectFiles>

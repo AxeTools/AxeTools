@@ -2,7 +2,7 @@
 
 namespace App\Utils;
 
-class Flash {
+final class Flash {
     /** @deprecated This should not be used, please use ALERT_INFO instead */
     public const ALERT_PRIMARY = 'primary';
     /** @deprecated This should not be used, please use ALERT_INFO instead */

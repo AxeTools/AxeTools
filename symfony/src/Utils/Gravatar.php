@@ -2,33 +2,33 @@
 
 namespace App\Utils;
 
-class Gravatar {
-    public const MAX_RATING_G = 'g';   // suitable for display on all websites with any audience type
-    public const MAX_RATING_PG = 'pg'; // may contain rude gestures, provocatively dressed individuals, the lesser swear words, or mild violence
-    public const MAX_RATING_R = 'r';   // may contain such things as harsh profanity, intense violence, nudity, or hard drug use
-    public const MAX_RATING_X = 'x';   // may contain hardcore sexual imagery or extremely disturbing violence
+final class Gravatar {
+    public const string MAX_RATING_G = 'g';   // suitable for display on all websites with any audience type
+    public const string MAX_RATING_PG = 'pg'; // may contain rude gestures, provocatively dressed individuals, the lesser swear words, or mild violence
+    public const string MAX_RATING_R = 'r';   // may contain such things as harsh profanity, intense violence, nudity, or hard drug use
+    public const string MAX_RATING_X = 'x';   // may contain hardcore sexual imagery or extremely disturbing violence
 
-    public const IMAGE_SIZE_MAX = 2048;
+    public const int IMAGE_SIZE_MAX = 2048;
 
-    public const IMAGE_EXTENSION_JPG = 'jpg';
-    public const IMAGE_EXTENSION_JPEG = 'jpeg';
-    public const IMAGE_EXTENSION_GIF = 'gif';
-    public const IMAGE_EXTENSION_PNG = 'png';
+    public const string IMAGE_EXTENSION_JPG = 'jpg';
+    public const string IMAGE_EXTENSION_JPEG = 'jpeg';
+    public const string IMAGE_EXTENSION_GIF = 'gif';
+    public const string IMAGE_EXTENSION_PNG = 'png';
 
-    public const URL_AVATAR_HTTP = 'http://www.gravatar.com/avatar/';
-    public const URL_AVATAR_HTTPS = 'https://www.gravatar.com/avatar/';
+    public const string URL_AVATAR_HTTP = 'http://www.gravatar.com/avatar/';
+    public const string URL_AVATAR_HTTPS = 'https://www.gravatar.com/avatar/';
 
-    public const URL_PROFILE_HTTP = 'http://www.gravatar.com/';
-    public const URL_PROFILE_HTTPS = 'https://www.gravatar.com/';
+    public const string URL_PROFILE_HTTP = 'http://www.gravatar.com/';
+    public const string URL_PROFILE_HTTPS = 'https://www.gravatar.com/';
 
-    public const IMAGE_DEFAULT_404 = '404';
-    public const IMAGE_DEFAULT_MYSTERY = 'mp';
-    public const IMAGE_DEFAULT_IDENTICON = 'identicon';
-    public const IMAGE_DEFAULT_MONSTERID = 'monsterid';
-    public const IMAGE_DEFAULT_WAVATAR = 'wavatar';
-    public const IMAGE_DEFAULT_RETRO = 'retro';
-    public const IMAGE_DEFAULT_ROBOHASH = 'robohash';
-    public const IMAGE_DEFAULT_BLANK = 'blank';
+    public const string IMAGE_DEFAULT_404 = '404';
+    public const string IMAGE_DEFAULT_MYSTERY = 'mp';
+    public const string IMAGE_DEFAULT_IDENTICON = 'identicon';
+    public const string IMAGE_DEFAULT_MONSTERID = 'monsterid';
+    public const string IMAGE_DEFAULT_WAVATAR = 'wavatar';
+    public const string IMAGE_DEFAULT_RETRO = 'retro';
+    public const string IMAGE_DEFAULT_ROBOHASH = 'robohash';
+    public const string IMAGE_DEFAULT_BLANK = 'blank';
 
     /**
      * @var int - The size to use for avatars
@@ -80,7 +80,7 @@ class Gravatar {
         $this->size = $size;
 
         if ($this->size > self::IMAGE_SIZE_MAX || $this->size < 0) {
-            throw new \InvalidArgumentException('Avatar size must be within 0 pixels and '.self::IMAGE_SIZE_MAX.' pixels');
+            throw new \InvalidArgumentException(sprintf('Avatar size must be within 0 pixels and %d pixels', self::IMAGE_SIZE_MAX));
         }
 
         return $this;

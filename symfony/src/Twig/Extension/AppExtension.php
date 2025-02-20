@@ -7,7 +7,8 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-class AppExtension extends AbstractExtension {
+final class AppExtension extends AbstractExtension {
+    #[\Override]
     public function getFilters(): array {
         return [
             // If your filter generates SAFE HTML, you should add a third
@@ -19,6 +20,7 @@ class AppExtension extends AbstractExtension {
         ];
     }
 
+    #[\Override]
     public function getFunctions(): array {
         return [
             /* @psalm-suppress InvalidArgument Incorrect reflection in Twig */

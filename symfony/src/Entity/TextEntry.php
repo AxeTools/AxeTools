@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class TextEntry {
+final class TextEntry {
     #[Assert\NotBlank]
     protected string $data = '';
 

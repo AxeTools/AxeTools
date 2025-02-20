@@ -9,7 +9,7 @@ use Twig\Environment;
 use Twig\Extension\RuntimeExtensionInterface;
 use Twig\Template;
 
-class ConvertExtensionRuntime implements RuntimeExtensionInterface {
+final class ConvertExtensionRuntime implements RuntimeExtensionInterface {
     public function __construct() {
         // Inject dependencies if needed
     }
@@ -25,7 +25,9 @@ class ConvertExtensionRuntime implements RuntimeExtensionInterface {
      * Twig wrapper for json_encode().
      */
     public static function jsonEncode(mixed $data): string {
-        return json_encode($data);
+        $result = json_encode($data);
+        if(!is_string($result)) return '';
+        return $result;
     }
 
     /**
@@ -51,6 +53,7 @@ class ConvertExtensionRuntime implements RuntimeExtensionInterface {
         ob_start();
         var_dump($data);
         $results = ob_get_contents();
+        if(false === $results) $results = '';
         ob_end_clean();
 
         return $results;
@@ -85,8 +88,9 @@ class ConvertExtensionRuntime implements RuntimeExtensionInterface {
             foreach ($vars as $value) {
                 $dumper->dump($cloner->cloneVar($value), $dump);
             }
-
-            return stream_get_contents($dump, -1, 0);
+            $results = stream_get_contents($dump, -1, 0);
+            if(false === $results) $results = null;
+            return $results;
         } else {
             return '';
         }

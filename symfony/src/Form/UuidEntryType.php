@@ -15,7 +15,8 @@ use Symfony\Component\Form\FormBuilderInterface;
  *
  * @psalm-suppress MissingTemplateParam
  */
-class UuidEntryType extends AbstractType {
+final class UuidEntryType extends AbstractType {
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void {
         $builder
             ->add('uuid', TextType::class, ['attr' => ['class' => 'form-control font-monospace fs-7', 'spellcheck' => false]]);

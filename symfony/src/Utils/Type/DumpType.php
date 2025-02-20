@@ -3,9 +3,9 @@
 namespace App\Utils\Type;
 
 enum DumpType: string {
-    public const VAR_DUMPER = 'var_dumper';
-    public const VAR_DUMP = 'var_dump';
-    public const VAR_EXPORT = 'var_export';
-    public const PRINT_R = 'print_r';
-    public const YAML = 'yaml';
+    public const string VAR_DUMPER = 'var_dumper';
+    public const string VAR_DUMP = 'var_dump';
+    public const string VAR_EXPORT = 'var_export';
+    public const string PRINT_R = 'print_r';
+    public const string YAML = 'yaml';
 }

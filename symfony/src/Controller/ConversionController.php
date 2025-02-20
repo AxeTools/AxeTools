@@ -17,8 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Yaml\Yaml;
 
 #[Route('/convert', name: 'app_convert_')]
-class ConversionController extends AbstractController {
-    public const UUID_DECODER_DATETIME_FORMAT = 'Y-m-d H:i:s.u.0 e';
+final class ConversionController extends AbstractController {
+    public const string UUID_DECODER_DATETIME_FORMAT = 'Y-m-d H:i:s.u.0 e';
 
     /**
      * @return array<mixed>
@@ -151,6 +151,7 @@ class ConversionController extends AbstractController {
         $textEntry = new TextEntry();
         $form = $this->createForm(SerializeEntryType::class, $textEntry);
         $result = null;
+        $output = '';
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -173,7 +174,7 @@ class ConversionController extends AbstractController {
                 ob_end_clean();
             }
 
-            if ('' !== $output) {
+            if ('' !== $output && is_string($output)) {
                 $this->addFlash(Flash::ALERT_WARNING, 'Your script had output text:<br> <pre>'.htmlspecialchars($output, ENT_QUOTES | ENT_SUBSTITUTE).'</pre>');
             }
             /**
@@ -222,7 +223,12 @@ class ConversionController extends AbstractController {
 
             $uuid = $uuidEntry->getUuid();
             passthru('uuid -d '.escapeshellarg($uuid));
-            $results = trim(ob_get_clean());
+            $results = ob_get_clean();
+            if(is_string($results)) {
+                $results = trim($results);
+            } else {
+                $results = '';
+            }
 
             $result = $this->parseUuidDecodeResults($results);
 
@@ -271,7 +277,7 @@ class ConversionController extends AbstractController {
      *
      * @return array<mixed>
      */
-    private function formatUuidResult(array $result): array {
+    protected function formatUuidResult(array $result): array {
         $hasTime = Dot::has($result, 'decode.contents.time');
 
         return [

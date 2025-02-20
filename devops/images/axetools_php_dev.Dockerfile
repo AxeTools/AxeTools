@@ -1,4 +1,4 @@
-FROM php:8.2-fpm-bookworm
+FROM php:8.4-fpm-bookworm
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -7,8 +7,6 @@ RUN apt-get update \
     zlib1g-dev \
     libxml2-dev \
     libzip-dev \
-    default-mysql-client \
-    smbclient libsmbclient-dev \
     libmagickwand-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
@@ -17,15 +15,11 @@ RUN apt-get update \
   && docker-php-ext-install \
     zip \
     intl \
-    mysqli \
-    pdo pdo_mysql \
     opcache \
     sockets \
     pcntl
 
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && docker-php-ext-install gd
-
-RUN yes | pecl install smbclient && docker-php-ext-enable smbclient && yes | pecl install imagick && docker-php-ext-enable imagick
 
 RUN yes | pecl install xdebug \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \

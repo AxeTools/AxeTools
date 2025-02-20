@@ -2,7 +2,7 @@
 
 namespace App\Utils;
 
-class Link {
+final class Link {
     protected string $link = '';
     protected string $description = '';
     protected string $target = '_blank';

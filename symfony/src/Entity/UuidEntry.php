@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class UuidEntry {
+final class UuidEntry {
     #[Assert\NotBlank]
     #[Assert\Uuid]
     protected string $uuid = '';

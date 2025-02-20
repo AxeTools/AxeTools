@@ -5,7 +5,7 @@ namespace App\Twig\Runtime;
 use App\Utils\Gravatar;
 use Twig\Extension\RuntimeExtensionInterface;
 
-class AppExtensionRuntime implements RuntimeExtensionInterface {
+final class AppExtensionRuntime implements RuntimeExtensionInterface {
     public function __construct() {
         // Inject dependencies if needed
     }

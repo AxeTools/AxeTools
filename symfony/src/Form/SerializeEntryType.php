@@ -19,7 +19,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @psalm-suppress MissingTemplateParam
  */
-class SerializeEntryType extends AbstractType {
+final class SerializeEntryType extends AbstractType {
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void {
         $builder
             ->add('data', TextareaType::class, ['attr' => ['class' => 'form-control font-monospace fs-7', 'rows' => 7, 'spellcheck' => false]])
@@ -34,6 +35,7 @@ class SerializeEntryType extends AbstractType {
             ]);
     }
 
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver): void {
         $resolver->setDefaults([
             'data_class' => TextEntry::class,

@@ -3,8 +3,8 @@
 namespace App\Utils\Type;
 
 enum SerializeType {
-    public const TYPE_JSON = 'json_encode';
-    public const TYPE_SERIALIZE = 'serialize';
-    public const TYPE_YAML = 'yaml';
-    public const TYPE_URL = 'url';
+    public const string TYPE_JSON = 'json_encode';
+    public const string TYPE_SERIALIZE = 'serialize';
+    public const string TYPE_YAML = 'yaml';
+    public const string TYPE_URL = 'url';
 }
